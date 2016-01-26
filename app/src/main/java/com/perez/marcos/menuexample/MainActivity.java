@@ -29,11 +29,8 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        Drawable hamburger = getApplicationContext().getDrawable(R.drawable.bg);
-        Drawable pizza = getApplicationContext().getDrawable(R.drawable.pz);
-
-        coolImageFlipper = new CoolImageFlipper(getApplicationContext());
         foodContainer = (ImageView) findViewById(R.id.foodContainer);
+        coolImageFlipper = new CoolImageFlipper(getApplicationContext());
     }
 
     @Override
