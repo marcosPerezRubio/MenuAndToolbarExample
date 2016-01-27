@@ -1,13 +1,25 @@
 package com.perez.marcos.menuexample;
 
+import android.animation.Animator;
+import android.animation.AnimatorInflater;
+import android.animation.ObjectAnimator;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.ViewFlipper;
+
+import com.example.material.joanbarroso.flipper.CoolImageFlipper;
 
 public class MainActivity extends AppCompatActivity {
+
+    ImageView foodContainer;
+    CoolImageFlipper coolImageFlipper;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,6 +28,9 @@ public class MainActivity extends AppCompatActivity {
         // Set a toolbar to replace the action bar.
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        foodContainer = (ImageView) findViewById(R.id.foodContainer);
+        coolImageFlipper = new CoolImageFlipper(getApplicationContext());
     }
 
     @Override
@@ -40,11 +55,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void giveMeABurger() {
-        Log.v("Burger","Give me a burger!");
+        Log.v("Burger", "Give me a burger!");
+        coolImageFlipper.flipImage(getDrawable(R.drawable.bg), foodContainer);
     }
 
     private void giveMeAPizza() {
         Log.v("Pizza", "Give me a pizza!");
+        coolImageFlipper.flipImage(getDrawable(R.drawable.pz), foodContainer);
     }
 
 }
